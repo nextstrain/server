@@ -137,11 +137,9 @@ class Index extends React.Component {
   }
 }
 
-// scripts/collect-pathogen-resources.js reads in a list of builds in a manually
-// maintained pathogen build catalogue yaml file such as static-site/content/allSARS-CoV-2Builds.yaml
-// and produces an augmented version with metadata from each corresponding dataset.
-// That augmented yaml file is stored on s3 and fetched here to populate the front-end
-// manisfestation of that pathogen build catalogue on the page (e.g. map of builds).
+// scripts/collect-datasets.js lists flu datasets from s3 into a JSON
+// which is pushed on a regular basis back to s3 to be fetched here
+// for the flu datasets page. This way of doing things is subject to change.
 async function fetchAndParseDatasetsJSON(jsonUrl) {
   const datasetsJSON = await fetch(jsonUrl)
     .then((res) => res.text())

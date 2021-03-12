@@ -6,18 +6,11 @@ import { FlexCenter } from "../../layouts/generalComponents";
 import * as splashStyles from "../splash/styles";
 import CollapseTitle from "../Misc/collapse-title";
 
-const charonGetAvailableAddress = process.env.NODE_ENV === "development" ?
-  "http://localhost:5000/charon/getAvailable" :
-  "/charon/getAvailable";
+const charonGetAvailableAddress = "/charon/getAvailable";
 
 /**
  * A component to render all situation reports for a given pathogen.
  * Data is obtained on page load by a API call to /charon/getAvailable.
- *
- * Note for testing: when using the garsby dev server (i.e. `npm run dev`)
- * the charon API is not available. In this case, the request will be made
- * to localhost:5000 which allows you to run the nextstrain.org server
- * as a separate process.
  */
 class Index extends React.Component {
   constructor(props) {
